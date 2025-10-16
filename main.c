@@ -3,19 +3,17 @@
 
 int main(int argc, char *argv[])
 {
-    int flag = 1;
-     int y;
+    int i;
     
-    while(flag != 0)
+    for(i=0;i<5;i++)          //이 안의 것이 5번 반복될 것. 결국 printf가 5번 반복되는 것. temp = , temp = , ... 5번. 
     {
-        
-         y =3;
-         flag = 0;
-                    //컴파일 했을 때 뜨는 에러는 해당 줄 혹은 그 위의 문제임. 그리고 항상 맞지는 않음. 기존 코드도 y가 선언되지 않은 게 아닌ㄷ 선언 안 되어있다고 
-                    // 되어있음.  
-               }
-         y = 4;     //기존 코드는 변수의 범위가 while문 안에만 있어서 while 문 바깥의 y는 값을 가질 수 없었음. 변수가 정의되지 않은 상태니까. 
-                    // 그래서 int y를 바깥으로 빼줌.  
+        static int temp=1;
+        printf("temp = %d\n", temp);
+        temp++;
+                    }
   system("PAUSE");	
   return 0;
 }
+
+//내 생각: 결국 결과는 printf로 나오니까, temp값에 따라 변하는데... 이거 헷갈림.  
+//temp가 생존기간이 길지 않기 때문임. 계속 소멸되므로. 계속 생기고 소멸되므로, 더하기가 누적되지 않아 초기값만 나오는 것. 
